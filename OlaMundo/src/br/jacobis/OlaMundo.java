@@ -32,5 +32,6 @@ public class OlaMundo {
 	System.out.println(p2);
 	
 	System.out.println("Bonus do professor " + Professor.BONUS);
+	System.out.println("Resultado da vericação da matricula = " + Aluno.verificaMatricula("1234"));
 	}
 }
