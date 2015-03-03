@@ -17,6 +17,20 @@ public class Aluno extends Pessoa {
 		super(nome, cpf);
 		this.matricula = matricula;
 	}
+	
+	public static boolean verificaMatricula(String matricula){
+		if (matricula == null){
+			return false;
+		}
+		if (matricula.length() != 8){
+			return false;
+		}
+		if (matricula.trim().equals("")){
+			return false;
+		}
+		return true;
+	}
+
 
 	public Aluno(Long matricula, String nome) {
 		super(nome, null);
