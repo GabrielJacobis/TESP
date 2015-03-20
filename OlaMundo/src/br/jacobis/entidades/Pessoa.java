@@ -34,7 +34,7 @@ public abstract class Pessoa {
 		this.nome = nome;
 	}
 
-	public String getCpf() {
+	public String getCPF() {
 		return cpf;
 	}
 

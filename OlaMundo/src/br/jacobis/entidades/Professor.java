@@ -33,6 +33,5 @@ public class Professor extends Pessoa {
 	public String toString() {
 		return super.toString() + "Professor [salario=" + salario + "]";
 	}
-	
-	
+		
 }
