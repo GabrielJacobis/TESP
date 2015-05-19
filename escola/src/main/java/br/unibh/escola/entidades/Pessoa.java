@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -16,7 +17,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-@Table(name="TB_PESSOA")
+@Table(name="TB_PESSOA", uniqueConstraints = @UniqueConstraint(columnNames = "cpf"))
 public abstract class Pessoa {
 	
 	
@@ -26,15 +27,19 @@ public abstract class Pessoa {
 	private Long id;
 	
 	@NotNull
-	@Size(min = 50, max = 100)
+	@Size(min = 10, max = 100)
 	@Pattern(regexp = "[A-Za-z ]*", message = "must contain only letters and spaces")
 	private String nome;
 	
 	@Column(name="CPF", unique=true, columnDefinition="CHAR(14)", length=14, nullable=false)
 	@NotBlank
 	@Size(min=14, max=14)
-	@Pattern(regexp = "^\\d{3}.\\d{3}.\\d{3}-\\d{2}$")
+	@Pattern(regexp = "^\\d{3}.\\d{3}.\\d{3}-\\d{2}$", message="CPF inválido")
 	private String cpf;
+	
+	public Pessoa(){
+		
+	}
 	
 	public Pessoa(Long id, String nome, String cpf) {
 		super();
@@ -64,12 +69,12 @@ public abstract class Pessoa {
 		this.nome = nome;
 	}
 
-	public String getCPF() {
+	public String getCpf() {
 		return cpf;
 	}
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-		
+	
 }

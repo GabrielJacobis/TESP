@@ -4,7 +4,8 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
@@ -12,7 +13,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="TB_PROFESSOR")
-@PrimaryKeyJoinColumn
+@NamedQueries({	@NamedQuery(name="Professor.findByName", query="SELECT p FROM Professor p WHERE p.nome LIKE :nome")})
 public class Professor extends Pessoa {
 	
 	@NotNull
@@ -20,7 +21,12 @@ public class Professor extends Pessoa {
 	@DecimalMax("50000.00")
 	@Column(name="SALARIO", nullable=false)
 	private BigDecimal salario;
-	public static Double BONUS = 0.10; 
+	
+	public static Double BONUS = 0.10;
+	
+	public Professor(){
+		
+	}
 	
 	public Professor(Long id, String nome, String cpf, BigDecimal salario) {
 		super(id, nome, cpf);

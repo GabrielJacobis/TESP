@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 15-Abr-2015 às 00:23
+-- Generation Time: 20-Maio-2015 às 00:56
 -- Versão do servidor: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -52,13 +52,6 @@ CREATE TABLE IF NOT EXISTS `member` (
   UNIQUE KEY `UK_9qv6yhjqm8iafto8qk452gx8h` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `member`
---
-
-INSERT INTO `member` (`id`, `email`, `name`, `phone_number`) VALUES
-(0, 'john.smith@mailinator.com', 'John Smith', '2125551212');
-
 -- --------------------------------------------------------
 
 --
@@ -79,9 +72,7 @@ CREATE TABLE IF NOT EXISTS `tb_aluno` (
 --
 
 INSERT INTO `tb_aluno` (`DATA_ANIVERSARIO`, `MATRICULA`, `ID`) VALUES
-('2015-04-01', 54321, 1),
-('1990-01-10', 222222, 2),
-('1980-12-24', 333333, 3);
+('2015-05-04', 44444, 1);
 
 -- --------------------------------------------------------
 
@@ -102,9 +93,8 @@ CREATE TABLE IF NOT EXISTS `tb_pessoa` (
 --
 
 INSERT INTO `tb_pessoa` (`ID`, `CPF`, `nome`) VALUES
-(1, '11111111111', 'Paulo Jose'),
-(2, '22222222222', 'Maria Jose'),
-(3, '33333333333', 'Joao Jose');
+(1, '444.444.444-44', 'Gabriel Jacobis'),
+(2, '111.111.111-11', 'ANTONIO SILVA');
 
 -- --------------------------------------------------------
 
@@ -124,9 +114,7 @@ CREATE TABLE IF NOT EXISTS `tb_professor` (
 --
 
 INSERT INTO `tb_professor` (`SALARIO`, `ID`) VALUES
-('5000.00', 1),
-('6000.00', 2),
-('7000.00', 3);
+('5000.00', 2);
 
 --
 -- Constraints for dumped tables
